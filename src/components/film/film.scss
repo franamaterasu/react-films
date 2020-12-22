@@ -1,0 +1,10 @@
+.film-banner {
+  height: calc(100vh - 55px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
