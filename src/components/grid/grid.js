@@ -8,7 +8,7 @@ const Grid = (props) => {
   return (
     <section className="grid">
       {films.map((film) => (
-        <Card cardInfo={film} />
+        <Card key={film.id} cardInfo={film} />
       ))}
     </section>
   );
