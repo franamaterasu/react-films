@@ -1,0 +1,29 @@
+.card {
+  background-color: #1a1a2e;
+  font-size: 0;
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__info {
+    padding: 20px 5%;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 5px
+  }
+
+  &__resume {
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    line-height: 21px;
+  }
+}
