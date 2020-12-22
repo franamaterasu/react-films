@@ -3,7 +3,7 @@ import "./card.scss";
 const Card = (props) => {
   const { title, poster_path, overview } = props.cardInfo;
 
-  const posterUrl = `https://image.tmdb.org/t/p/w185/${poster_path}`;
+  const posterUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`;
 
   return (
     <article className="card">

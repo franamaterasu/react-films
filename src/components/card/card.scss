@@ -25,5 +25,9 @@
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     line-height: 21px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
   }
 }
