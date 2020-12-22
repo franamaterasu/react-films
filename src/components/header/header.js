@@ -1,14 +1,17 @@
+import { Link } from "react-router-dom";
 import "./header.scss";
 
 const Header = ({ onSearch }) => {
   return (
     <header className="header">
-      <a className="header__logo" href="@">
+      <Link className="header__logo" to="/">
         ReactFilms
-      </a>
+      </Link>
       <section className="header__actions">
         <nav className="header__nav">
-          <li className="header__nav-item">Home</li>
+          <Link className="header__nav-item" to="/">
+            Home
+          </Link>
           <li className="header__nav-item">Top</li>
           <li className="header__nav-item">Recents</li>
         </nav>
