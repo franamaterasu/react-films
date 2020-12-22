@@ -1,0 +1,31 @@
+.header {
+  background-color: #1a1a2e;
+  padding: 10px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    color: #fff;
+    text-decoration: none;
+     font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+  }
+
+  &__nav {
+    display: flex;
+    list-style: none;
+
+    &-item {
+      color: #fff;
+      margin-right: 15px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
