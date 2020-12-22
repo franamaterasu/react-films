@@ -2,10 +2,14 @@ import Card from "../card";
 
 import "./grid.scss";
 
-const Grid = () => {
+const Grid = (props) => {
+  const { films } = props;
+
   return (
     <section className="grid">
-      <Card />
+      {films.map((film) => (
+        <Card cardInfo={film} />
+      ))}
     </section>
   );
 };
