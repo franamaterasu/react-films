@@ -6,6 +6,9 @@
   position: relative;
 
   &:hover {
+    .card__image {
+      transform: scale(1.2);
+    }
     .card__info {
       bottom: 0;
     }
@@ -17,9 +20,12 @@
 
   &__image {
     width: 100%;
+    min-height: 500px;
     height: auto;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+    transition: transform .8s ease-in-out;
+
   }
 
   &__info {
@@ -28,6 +34,8 @@
     bottom: -100%;
     background-color: #1a1a2e;
     transition: bottom .8s ease-in-out;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   &__title {
