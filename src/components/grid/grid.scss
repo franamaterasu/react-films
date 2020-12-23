@@ -3,4 +3,31 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 30px;
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+
+  &__button {
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    background-color: #645cd6;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 20px;
+    line-height: 0;
+
+    &--prev {
+      margin-right: 15px;
+    }
+    
+    &:hover {
+      background-color: darken(#645cd6, 10%);
+    }
+  }
 }
