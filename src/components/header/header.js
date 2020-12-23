@@ -1,19 +1,32 @@
 import { Link } from "react-router-dom";
 import "./header.scss";
 
-const Header = ({ onSearch }) => {
+const Header = ({
+  onSearch,
+  handleTopClick,
+  handleRecentClick,
+  handleHomeClick,
+}) => {
   return (
     <header className="header">
-      <Link className="header__logo" to="/">
+      <Link onClick={handleHomeClick} className="header__logo" to="/">
         ReactFilms
       </Link>
       <section className="header__actions">
         <nav className="header__nav">
-          <Link className="header__nav-item" to="/">
+          <Link onClick={handleHomeClick} className="header__nav-item" to="/">
             Home
           </Link>
-          <li className="header__nav-item">Top</li>
-          <li className="header__nav-item">Recents</li>
+          <Link onClick={handleTopClick} className="header__nav-item" to="/top">
+            Top
+          </Link>
+          <Link
+            onClick={handleRecentClick}
+            className="header__nav-item"
+            to="/recents"
+          >
+            Recents
+          </Link>
         </nav>
         <input
           onChange={onSearch}

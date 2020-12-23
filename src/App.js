@@ -1,6 +1,8 @@
 import Header from "./components/header";
 import Grid from "./components/grid";
 import Film from "./components/film";
+import Top from "./pages/top";
+import Recents from "./pages/recents";
 import useSearch from "./components/useSearch";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -11,12 +13,20 @@ function App() {
     handleMoreClick,
     handleLessClick,
     page,
+    showHomeFilms,
+    showTopFilms,
+    showRecentFilms,
   } = useSearch();
 
   return (
     <>
       <Router>
-        <Header onSearch={searchByTitle} />
+        <Header
+          onSearch={searchByTitle}
+          handleHomeClick={showHomeFilms}
+          handleTopClick={showTopFilms}
+          handleRecentClick={showRecentFilms}
+        />
         <Switch>
           <Route path="/" exact={true}>
             <Grid
@@ -28,6 +38,12 @@ function App() {
           </Route>
           <Route path="/movie/:id" exact={true}>
             <Film />
+          </Route>
+          <Route path="/top" exact={true}>
+            <Top films={films} />
+          </Route>
+          <Route path="/recents" exact={true}>
+            <Recents films={films} />
           </Route>
         </Switch>
       </Router>
