@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 const useSearch = () => {
   const [films, setFilms] = useState([]);
   const [page, setPage] = useState(1);
+  const [searchValue, setSearchValue] = useState("");
 
   const handleMoreClick = () => {
     setPage(page + 1);
@@ -23,10 +24,17 @@ const useSearch = () => {
   }, [page]);
 
   const searchByTitle = (event) => {
-    const { value } = event.target;
-    if (value && value.length > 2) {
+    setSearchValue(event.target.value);
+    if (searchValue) {
       fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=7cdd6813e009397c594758fe7bce7b47&language=en-US&query=${value}&page=${page}&include_adult=false`
+        `https://api.themoviedb.org/3/search/movie?api_key=7cdd6813e009397c594758fe7bce7b47&language=en-US&query=${searchValue}&page=${page}&include_adult=false`
+      )
+        .then((res) => res.json())
+        .then((res) => setFilms(res.results))
+        .catch((e) => console.error(e));
+    } else if (searchValue === "") {
+      fetch(
+        `https://api.themoviedb.org/3/movie/popular?api_key=7cdd6813e009397c594758fe7bce7b47&language=en-US&page=${page}`
       )
         .then((res) => res.json())
         .then((res) => setFilms(res.results))
