@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./header.scss";
 
 const Header = ({
@@ -7,6 +8,10 @@ const Header = ({
   handleRecentClick,
   handleHomeClick,
 }) => {
+  const location = useLocation();
+
+  const { pathname } = location;
+
   return (
     <header className="header">
       <Link onClick={handleHomeClick} className="header__logo" to="/">
@@ -14,15 +19,29 @@ const Header = ({
       </Link>
       <section className="header__actions">
         <nav className="header__nav">
-          <Link onClick={handleHomeClick} className="header__nav-item" to="/">
+          <Link
+            onClick={handleHomeClick}
+            className={`header__nav-item ${
+              pathname === "/" ? "header__nav-item--active" : ""
+            }`}
+            to="/"
+          >
             Home
           </Link>
-          <Link onClick={handleTopClick} className="header__nav-item" to="/top">
+          <Link
+            onClick={handleTopClick}
+            className={`header__nav-item ${
+              pathname === "/top" ? "header__nav-item--active" : ""
+            }`}
+            to="/top"
+          >
             Top
           </Link>
           <Link
             onClick={handleRecentClick}
-            className="header__nav-item"
+            className={`header__nav-item ${
+              pathname === "/recents" ? "header__nav-item--active" : ""
+            }`}
             to="/recents"
           >
             Recents
