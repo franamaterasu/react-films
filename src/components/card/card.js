@@ -9,7 +9,7 @@ const Card = (props) => {
 
   return (
     <article className="card">
-      <Link to={`/movie/${id}`}>
+      <Link className="card__content" to={`/movie/${id}`}>
         <img className="card__image" src={posterUrl} alt={title} />
         <section className="card__info">
           <h4 className="card__title">{title}</h4>

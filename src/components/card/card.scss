@@ -1,22 +1,41 @@
 .card {
-  background-color: #1a1a2e;
   font-size: 0;
+  border-radius: 6px;
+  max-height: 500px;
+  overflow: hidden;
+  position: relative;
+
+  &:hover {
+    .card__info {
+      bottom: 0;
+    }
+  }
+
+  &__content {
+    text-decoration: none;
+  }
 
   &__image {
     width: 100%;
     height: auto;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
   }
 
   &__info {
-    padding: 20px 5%;
+    padding: 25px 5%;
+    position: absolute;
+    bottom: -100%;
+    background-color: #1a1a2e;
+    transition: bottom .8s ease-in-out;
   }
 
   &__title {
-    font-size: 18px;
+    font-size: 21px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     color: #fff;
-    margin-bottom: 5px
+    margin-bottom: 10px;
   }
 
   &__resume {
