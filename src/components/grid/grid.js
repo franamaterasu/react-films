@@ -22,12 +22,16 @@ const Grid = (props) => {
             Prev
           </button>
         )}
-        <button
-          className="grid__button grid__button--next"
-          onClick={handleMoreClick}
-        >
-          Next
-        </button>
+        {films.length < 20 ? (
+          ""
+        ) : (
+          <button
+            className="grid__button grid__button--next"
+            onClick={handleMoreClick}
+          >
+            Next
+          </button>
+        )}
       </footer>
     </>
   );
