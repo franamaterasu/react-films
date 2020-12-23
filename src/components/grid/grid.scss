@@ -21,6 +21,7 @@
     font-size: 18px;
     padding: 20px;
     line-height: 0;
+    transition: background-color .8s ease-in-out;
 
     &--prev {
       margin-right: 15px;
@@ -28,6 +29,7 @@
     
     &:hover {
       background-color: darken(#645cd6, 10%);
+      cursor: pointer;
     }
   }
 }
