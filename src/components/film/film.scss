@@ -94,3 +94,14 @@
     }
   }
 }
+
+.film-related {
+  padding: 60px 0 30px;
+
+  &__title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 0 5%;
+    font-size: 33px;
+  }
+}

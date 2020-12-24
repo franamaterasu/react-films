@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import Grid from "../grid";
+
 import "./film.scss";
 
 const Film = () => {
   const [film, setFilm] = useState([]);
+  const [recomendations, setRecomendations] = useState([]);
   const { id } = useParams();
+
+  const shortRecomendations = recomendations.slice(0, 10);
 
   useEffect(() => {
     fetch(
@@ -15,6 +20,17 @@ const Film = () => {
       .then((res) => setFilm(res))
       .catch((e) => console.error(e));
   }, []);
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${id}/similar?api_key=7cdd6813e009397c594758fe7bce7b47&language=en-US&page=1`
+    )
+      .then((res) => res.json())
+      .then((res) => setRecomendations(res.results))
+      .catch((e) => console.error(e));
+  }, []);
+
+  console.log(recomendations);
 
   const {
     backdrop_path,
@@ -28,7 +44,7 @@ const Film = () => {
   const bannerBg = `https://image.tmdb.org/t/p/original${backdrop_path}`;
 
   return (
-    <article>
+    <>
       <section
         className="film-banner"
         style={{ backgroundImage: `url('${bannerBg}')` }}
@@ -55,7 +71,11 @@ const Film = () => {
           </div>
         </div>
       </section>
-    </article>
+      <section className="film-related">
+        <h4 className="film-related__title">Related films</h4>
+        <Grid films={shortRecomendations} />
+      </section>
+    </>
   );
 };
 
