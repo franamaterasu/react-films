@@ -5,6 +5,7 @@ const useSearch = () => {
   const [films, setFilms] = useState([]);
   const [page, setPage] = useState(1);
   const [searchValue, setSearchValue] = useState("");
+  const [sliderHeight, setSliderHeight] = useState(false);
 
   const handleMoreClick = () => {
     setPage(page + 1);
@@ -69,6 +70,14 @@ const useSearch = () => {
       .catch((e) => console.error(e));
   };
 
+  const hideSlider = () => {
+    setSliderHeight(true);
+  };
+
+  const showSlider = () => {
+    setSliderHeight(false);
+  };
+
   return {
     films,
     setFilms,
@@ -80,6 +89,9 @@ const useSearch = () => {
     showTopFilms,
     showRecentFilms,
     showHomeFilms,
+    hideSlider,
+    showSlider,
+    sliderHeight,
   };
 };
 

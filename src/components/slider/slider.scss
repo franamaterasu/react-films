@@ -3,8 +3,16 @@
   overflow: hidden;
   overflow-x: scroll;
   display: flex;
-  min-height: calc(90vh - 55px);
   margin-bottom: 20px;
+  transition: min-height .8s ease-in-out;
+
+  &--show {
+    min-height: calc(90vh - 55px);
+  }
+
+  &--hide {
+    min-height: 0;
+  }
 }
 
 .slider-item {

@@ -17,6 +17,9 @@ function App() {
     showHomeFilms,
     showTopFilms,
     showRecentFilms,
+    hideSlider,
+    sliderHeight,
+    showSlider,
   } = useSearch();
 
   const { slider } = useSlider();
@@ -26,6 +29,8 @@ function App() {
       <Router>
         <Header
           onSearch={searchByTitle}
+          onFocus={hideSlider}
+          onBlur={showSlider}
           handleHomeClick={showHomeFilms}
           handleTopClick={showTopFilms}
           handleRecentClick={showRecentFilms}
@@ -38,6 +43,7 @@ function App() {
               page={page}
               handleMoreClick={handleMoreClick}
               handleLessClick={handleLessClick}
+              sliderHeight={sliderHeight}
             />
           </Route>
           <Route path="/movie/:id" exact={true}>

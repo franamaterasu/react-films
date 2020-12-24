@@ -4,6 +4,8 @@ import "./header.scss";
 
 const Header = ({
   onSearch,
+  onFocus,
+  onBlur,
   handleTopClick,
   handleRecentClick,
   handleHomeClick,
@@ -49,6 +51,8 @@ const Header = ({
         </nav>
         <input
           onChange={onSearch}
+          onFocus={onFocus}
+          onBlur={onBlur}
           className="header__search"
           type="text"
           placeholder="Busca cualquier película..."

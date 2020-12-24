@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import "./slider.scss";
 
 const Slider = (props) => {
-  const { slider } = props;
+  const { slider, sliderHeight } = props;
 
   return (
-    <section className="slider">
+    <section
+      className={`slider ${sliderHeight ? "slider--hide" : "slider--show"}`}
+    >
       {slider.map((item) => {
         const { id, title, overview, backdrop_path } = item;
         const posterUrl = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
@@ -15,7 +17,7 @@ const Slider = (props) => {
             className="slider-item"
             style={{ backgroundImage: `url('${posterUrl}')` }}
           >
-            <div class="slider-item__info">
+            <div className="slider-item__info">
               <p className="slider-item__title">{title}</p>
               <p className="slider-item__overview">{overview}</p>
               <Link className="slider-item__button" to={`/movie/${id}`}>
