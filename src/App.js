@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Top from "./pages/top";
 import Recents from "./pages/recents";
 import useSearch from "./components/useSearch";
+import useSlider from "./components/useSlider";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
     showRecentFilms,
   } = useSearch();
 
+  const { slider } = useSlider();
+
   return (
     <>
       <Router>
@@ -31,6 +34,7 @@ function App() {
           <Route path="/" exact={true}>
             <Home
               films={films}
+              slider={slider}
               page={page}
               handleMoreClick={handleMoreClick}
               handleLessClick={handleLessClick}

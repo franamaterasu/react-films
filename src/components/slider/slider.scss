@@ -1,0 +1,76 @@
+.slider {
+  scroll-snap-type: x mandatory;
+  overflow: hidden;
+  overflow-x: scroll;
+  display: flex;
+  min-height: calc(90vh - 55px);
+  margin-bottom: 20px;
+}
+
+.slider-item {
+  width: 100%;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  position: relative;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  box-sizing: border-box;
+  background-position: top center;
+
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: calc(100vh - 55px);
+    width: 100%;
+    background-color: rgba(0,0,0, .4);
+  }
+
+  &__info {
+    max-width: 850px;
+    position: relative;
+    z-index: 10;
+  }
+
+  &__title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    font-size: 73px;
+    margin-bottom: 15px;
+  }
+
+  &__overview {
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 23px;
+    line-height: 32px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    margin-bottom: 50px;
+  }
+
+  &__button {
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #fff;
+    background-color: #645cd6;
+    text-decoration: none;
+    font-size: 20px;
+    transition: background-color .8s ease-in-out;
+
+    &:hover {
+      background-color: darken(#645cd6, 10%);
+    }
+  }
+}
