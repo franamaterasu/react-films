@@ -1,6 +1,6 @@
 import Header from "./components/header";
-import Grid from "./components/grid";
 import Film from "./components/film";
+import Home from "./pages/home";
 import Top from "./pages/top";
 import Recents from "./pages/recents";
 import useSearch from "./components/useSearch";
@@ -29,11 +29,11 @@ function App() {
         />
         <Switch>
           <Route path="/" exact={true}>
-            <Grid
+            <Home
               films={films}
+              page={page}
               handleMoreClick={handleMoreClick}
               handleLessClick={handleLessClick}
-              page={page}
             />
           </Route>
           <Route path="/movie/:id" exact={true}>
