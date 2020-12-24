@@ -1,18 +1,6 @@
 .card {
   font-size: 0;
   border-radius: 6px;
-  max-height: 500px;
-  overflow: hidden;
-  position: relative;
-
-  &:hover {
-    .card__image {
-      transform: scale(1.2);
-    }
-    .card__info {
-      bottom: 0;
-    }
-  }
 
   &__content {
     text-decoration: none;
@@ -30,12 +18,11 @@
 
   &__info {
     padding: 25px 5%;
-    position: absolute;
-    bottom: -100%;
     background-color: #1a1a2e;
-    transition: bottom .8s ease-in-out;
     width: 100%;
     box-sizing: border-box;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
   }
 
   &__title {
@@ -56,5 +43,29 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;  
     overflow: hidden;
+  }
+}
+
+@media(min-width: 1000px) {
+  .card {
+    max-height: 500px;
+    overflow: hidden;
+    position: relative;
+
+  
+    &:hover {
+      .card__image {
+        transform: scale(1.2);
+      }
+      .card__info {
+        bottom: 0;
+      }
+    }
+
+    &__info {
+      position: absolute;
+      bottom: -100%;
+      transition: bottom .8s ease-in-out;
+    }
   }
 }
