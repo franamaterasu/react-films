@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import "./card.scss";
 
@@ -19,4 +20,18 @@ const Card = (props) => {
     </article>
   );
 };
+
+Card.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  poster_path: PropTypes.string,
+  overview: PropTypes.string.isRequired,
+};
+
+Card.defaultProps = {
+  title: "Film Title",
+  overview:
+    "I'm baby small batch air plant pop-up, freegan yr single-origin coffee master cleanse.",
+};
+
 export default Card;
