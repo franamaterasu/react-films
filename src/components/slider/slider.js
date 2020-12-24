@@ -15,6 +15,7 @@ const Slider = (props) => {
         return (
           <article
             className="slider-item"
+            key={id}
             style={{ backgroundImage: `url('${posterUrl}')` }}
           >
             <div className="slider-item__info">
