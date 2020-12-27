@@ -57,12 +57,14 @@ const Film = () => {
           <p className="film-banner__title">{title}</p>
           <p className="film-banner__overview">{overview}</p>
           <div className="film-banner__details">
-            {genres && (
+            {genres && genres.length > 1 ? (
               <div className="film-banner__genres">
                 {genres.map((genre) => (
                   <article className="film-banner__genre">{genre.name}</article>
                 ))}
               </div>
+            ) : (
+              ""
             )}
             <div className="film-banner__votes">
               <article className="film-banner__votes-item">
