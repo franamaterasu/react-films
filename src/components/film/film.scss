@@ -21,7 +21,6 @@
   }
 
   &__info {
-    max-width: 750px;
     position: relative;
     z-index: 10;
   }
@@ -32,6 +31,7 @@
     color: #fff;
     font-size: 73px;
     margin-bottom: 15px;
+    max-width: 800px;
   }
 
   &__overview {
@@ -44,17 +44,20 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;  
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    max-width: 800px;
   }
 
   &__details {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   &__genres {
     display: flex;
-    margin-right: 40px;
+    margin-bottom: 20px;
+    //margin-right: 40px;
   }
 
   &__genre {
@@ -103,5 +106,17 @@
     font-weight: 500;
     padding: 0 5%;
     font-size: 33px;
+  }
+}
+
+@media(min-width: 1000px) {
+  .film-banner {
+    &__details {
+      flex-direction: row;
+    }
+
+    &__genres {
+      margin-right: 40px;
+    }
   }
 }
