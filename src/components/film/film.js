@@ -28,7 +28,7 @@ const Film = () => {
       .then((res) => res.json())
       .then((res) => setRecomendations(res.results))
       .catch((e) => console.error(e));
-  }, []);
+  }, [id]);
 
   const {
     backdrop_path,
