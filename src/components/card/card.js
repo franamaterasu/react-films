@@ -15,7 +15,15 @@ const Card = (props) => {
   return (
     <article className="card" onClick={handleClickScrollTop}>
       <Link className="card__content" to={`/movie/${id}`}>
-        <img className="card__image" src={posterUrl} alt={title} />
+        {poster_path ? (
+          <img className="card__image" src={posterUrl} alt={title} />
+        ) : (
+          <img
+            className="card__image"
+            src="https://images.pexels.com/photos/3607083/pexels-photo-3607083.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt={title}
+          />
+        )}
         <section className="card__info">
           <h4 className="card__title">{title}</h4>
           <p className="card__resume">{overview}</p>

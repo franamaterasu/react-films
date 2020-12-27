@@ -14,12 +14,16 @@ const Home = (props) => {
   return (
     <>
       <Slider slider={slider} sliderHeight={sliderHeight} />
-      <Grid
-        films={films}
-        handleMoreClick={handleMoreClick}
-        handleLessClick={handleLessClick}
-        page={page}
-      />
+      {!films ? (
+        console.log("Cargando")
+      ) : (
+        <Grid
+          films={films}
+          handleMoreClick={handleMoreClick}
+          handleLessClick={handleLessClick}
+          page={page}
+        />
+      )}
     </>
   );
 };
