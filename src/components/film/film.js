@@ -40,24 +40,32 @@ const Film = () => {
   } = film;
 
   const bannerBg = `https://image.tmdb.org/t/p/original${backdrop_path}`;
+  const defaultBannerBg =
+    "https://images.pexels.com/photos/1312488/pexels-photo-1312488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
 
   return (
     <>
       <section
         className="film-banner"
-        style={{ backgroundImage: `url('${bannerBg}')` }}
+        style={{
+          backgroundImage: backdrop_path
+            ? `url(${bannerBg})`
+            : `url(${defaultBannerBg})`,
+        }}
       >
         <div className="film-banner__info">
           <p className="film-banner__title">{title}</p>
           <p className="film-banner__overview">{overview}</p>
           <div className="film-banner__details">
-            {/* 
-            <div className="film-banner__genres">
-              {genres.map((genre) => (
-                <article className="film-banner__genre">{genre.name}</article>
-              ))}
-            </div>
-            */}
+            {genres && genres.length > 1 ? (
+              <div className="film-banner__genres">
+                {genres.map((genre) => (
+                  <article className="film-banner__genre">{genre.name}</article>
+                ))}
+              </div>
+            ) : (
+              ""
+            )}
             <div className="film-banner__votes">
               <article className="film-banner__votes-item">
                 Número de votos: {vote_count}
@@ -69,10 +77,14 @@ const Film = () => {
           </div>
         </div>
       </section>
-      <section className="film-related">
-        <h4 className="film-related__title">Related films</h4>
-        <Grid films={shortRecomendations} />
-      </section>
+      {recomendations.length > 0 ? (
+        <section className="film-related">
+          <h4 className="film-related__title">Related films</h4>
+          <Grid films={shortRecomendations} />
+        </section>
+      ) : (
+        ""
+      )}
     </>
   );
 };
