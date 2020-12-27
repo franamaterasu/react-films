@@ -30,8 +30,6 @@ const Film = () => {
       .catch((e) => console.error(e));
   }, []);
 
-  console.log(recomendations);
-
   const {
     backdrop_path,
     title,
