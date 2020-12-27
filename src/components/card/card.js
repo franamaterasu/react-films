@@ -8,8 +8,12 @@ const Card = (props) => {
 
   const posterUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`;
 
+  const handleClickScrollTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <article className="card">
+    <article className="card" onClick={handleClickScrollTop}>
       <Link className="card__content" to={`/movie/${id}`}>
         <img className="card__image" src={posterUrl} alt={title} />
         <section className="card__info">
