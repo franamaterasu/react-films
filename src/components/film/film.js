@@ -19,7 +19,7 @@ const Film = () => {
       .then((res) => res.json())
       .then((res) => setFilm(res))
       .catch((e) => console.error(e));
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     fetch(
