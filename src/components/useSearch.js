@@ -6,6 +6,7 @@ const useSearch = () => {
   const [page, setPage] = useState(1);
   const [searchValue, setSearchValue] = useState("");
   const [sliderHeight, setSliderHeight] = useState(false);
+  const [megaMenu, setMegaMenu] = useState(false);
 
   const handleMoreClick = () => {
     setPage(page + 1);
@@ -78,6 +79,10 @@ const useSearch = () => {
     setSliderHeight(false);
   };
 
+  const showCategories = () => {
+    megaMenu === false ? setMegaMenu(true) : setMegaMenu(false);
+  };
+
   return {
     films,
     setFilms,
@@ -92,6 +97,8 @@ const useSearch = () => {
     hideSlider,
     showSlider,
     sliderHeight,
+    showCategories,
+    megaMenu,
   };
 };
 

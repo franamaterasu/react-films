@@ -1,0 +1,18 @@
+.megamenu {
+  position: absolute;
+  top: 0;
+  background: #fff;
+  width: 100%;
+  padding: 20px 5%;
+  transition: all .8s ease-in-out;
+  height: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 2;
+
+  &--show {
+    top: 100%;
+    visibility: visible;
+    pointer-events: all;
+  }
+}

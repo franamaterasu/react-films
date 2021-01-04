@@ -17,9 +17,11 @@ function App() {
     showHomeFilms,
     showTopFilms,
     showRecentFilms,
+    showCategories,
     hideSlider,
     sliderHeight,
     showSlider,
+    megaMenu,
   } = useSearch();
 
   const { slider } = useSlider();
@@ -34,6 +36,8 @@ function App() {
           handleHomeClick={showHomeFilms}
           handleTopClick={showTopFilms}
           handleRecentClick={showRecentFilms}
+          handleCategoriesClick={showCategories}
+          megaMenu={megaMenu}
         />
         <Switch>
           <Route path="/" exact={true}>
