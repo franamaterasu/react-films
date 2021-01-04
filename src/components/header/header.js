@@ -13,6 +13,7 @@ const Header = ({
   handleHomeClick,
   handleCategoriesClick,
   megaMenu,
+  categories,
 }) => {
   const location = useLocation();
 
@@ -67,7 +68,7 @@ const Header = ({
           />
         </section>
       </header>
-      <Megamenu showMegaMenu={megaMenu} />
+      <Megamenu showMegaMenu={megaMenu} categories={categories} />
     </section>
   );
 };

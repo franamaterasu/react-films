@@ -1,11 +1,13 @@
 import "./megaMenu.scss";
 
 const MegaMenu = (props) => {
-  const { showMegaMenu } = props;
+  const { showMegaMenu, categories } = props;
 
   return (
     <section className={`megamenu  ${showMegaMenu ? "megamenu--show" : ""}`}>
-      <p>Este es el megamenu</p>
+      {categories.map((category) => {
+        return <p>{category.name}</p>;
+      })}
     </section>
   );
 };

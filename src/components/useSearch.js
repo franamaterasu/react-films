@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // Hook propio para la búsqueda
 const useSearch = () => {
   const [films, setFilms] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [page, setPage] = useState(1);
   const [searchValue, setSearchValue] = useState("");
   const [sliderHeight, setSliderHeight] = useState(false);
@@ -81,6 +82,13 @@ const useSearch = () => {
 
   const showCategories = () => {
     megaMenu === false ? setMegaMenu(true) : setMegaMenu(false);
+
+    fetch(
+      "https://api.themoviedb.org/3/genre/movie/list?api_key=7cdd6813e009397c594758fe7bce7b47&language=en-US"
+    )
+      .then((res) => res.json())
+      .then((res) => setCategories(res.genres))
+      .catch((e) => console.log(e));
   };
 
   return {
@@ -99,6 +107,7 @@ const useSearch = () => {
     sliderHeight,
     showCategories,
     megaMenu,
+    categories,
   };
 };
 

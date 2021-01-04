@@ -9,6 +9,7 @@
   visibility: hidden;
   pointer-events: none;
   z-index: 2;
+  box-sizing: border-box;
 
   &--show {
     top: 100%;
