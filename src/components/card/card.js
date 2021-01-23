@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import ThemeContext from "../../context/themeContext";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -6,6 +8,8 @@ import "./card.scss";
 const Card = (props) => {
   const { id, title, poster_path, overview } = props.cardInfo;
 
+  const theme = useContext(ThemeContext);
+
   const posterUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`;
 
   const handleClickScrollTop = () => {
@@ -13,7 +17,7 @@ const Card = (props) => {
   };
 
   return (
-    <article className="card" onClick={handleClickScrollTop}>
+    <article className={`card`} onClick={handleClickScrollTop}>
       <Link className="card__content" to={`/movie/${id}`}>
         {poster_path ? (
           <img className="card__image" src={posterUrl} alt={title} />
@@ -24,9 +28,25 @@ const Card = (props) => {
             alt={title}
           />
         )}
-        <section className="card__info">
-          <h4 className="card__title">{title}</h4>
-          <p className="card__resume">{overview}</p>
+        <section
+          className={`card__info ${
+            theme ? "card__info--dark" : "card__info--light"
+          }`}
+        >
+          <h4
+            className={`card__title ${
+              theme ? "card__title--dark" : "card__title--light"
+            }`}
+          >
+            {title}
+          </h4>
+          <p
+            className={`card__resume ${
+              theme ? "card__resume--dark" : "card__resume--light"
+            }`}
+          >
+            {overview}
+          </p>
         </section>
       </Link>
     </article>
