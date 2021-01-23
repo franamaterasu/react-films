@@ -1,4 +1,6 @@
+import React, { useContext } from "react";
 import Card from "../card";
+import ThemeContext from "../../context/themeContext";
 import { useLocation } from "react-router-dom";
 import "./grid.scss";
 
@@ -7,11 +9,13 @@ const Grid = (props) => {
 
   const { pathname } = location;
 
+  const theme = useContext(ThemeContext);
+
   const { films, handleMoreClick, handleLessClick, page } = props;
 
   return (
     <>
-      <section className="grid">
+      <section className={`grid ${theme ? "grid--dark" : "grid--light"}`}>
         {films.map((film) => (
           <Card key={film.id} cardInfo={film} />
         ))}
@@ -19,7 +23,9 @@ const Grid = (props) => {
       {pathname !== "/" ? (
         ""
       ) : (
-        <footer className="grid__footer">
+        <footer
+          className={`grid__footer ${theme ? "grid--dark" : "grid--light"}`}
+        >
           {page === 1 ? (
             ""
           ) : (
