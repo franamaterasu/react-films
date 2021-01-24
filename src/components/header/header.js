@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import ThemeContext from "../../context/themeContext";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";

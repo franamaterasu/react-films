@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "./components/header";
 import Film from "./components/film";
 import Home from "./pages/home";
