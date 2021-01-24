@@ -20,9 +20,15 @@ const Card = (props) => {
     <article className={`card`} onClick={handleClickScrollTop}>
       <Link className="card__content" to={`/movie/${id}`}>
         {poster_path ? (
-          <img className="card__image" src={posterUrl} alt={title} />
+          <img
+            loading="lazy"
+            className="card__image"
+            src={posterUrl}
+            alt={title}
+          />
         ) : (
           <img
+            loading="lazy"
             className="card__image"
             src="https://images.pexels.com/photos/3607083/pexels-photo-3607083.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             alt={title}
