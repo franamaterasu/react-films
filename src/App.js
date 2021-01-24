@@ -1,13 +1,15 @@
-import { useState } from "react";
+import React, { useState, Suspense } from "react";
 import Header from "./components/header";
-import Film from "./components/film";
 import Home from "./pages/home";
-import Top from "./pages/top";
-import Recents from "./pages/recents";
 import useSearch from "./components/useSearch";
 import useSlider from "./components/useSlider";
 import ThemeContext from "./context/themeContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// Load components with React.lazy
+const Top = React.lazy(() => import("./pages/top"));
+const Recents = React.lazy(() => import("./pages/recents"));
+const Film = React.lazy(() => import("./components/film"));
 
 function App() {
   const {
@@ -33,7 +35,7 @@ function App() {
   };
 
   return (
-    <>
+    <Suspense fallback={<div></div>}>
       <Router>
         <ThemeContext.Provider value={theme}>
           <Header
@@ -68,7 +70,7 @@ function App() {
           </Switch>
         </ThemeContext.Provider>
       </Router>
-    </>
+    </Suspense>
   );
 }
 
