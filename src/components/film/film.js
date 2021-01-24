@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import ThemeContext from "../../context/themeContext";
 import { useParams } from "react-router-dom";
 
 import Grid from "../grid";
@@ -9,6 +10,7 @@ const Film = () => {
   const [film, setFilm] = useState([]);
   const [recomendations, setRecomendations] = useState([]);
   const { id } = useParams();
+  const theme = useContext(ThemeContext);
 
   const shortRecomendations = recomendations.slice(0, 10);
 
@@ -78,8 +80,18 @@ const Film = () => {
         </div>
       </section>
       {recomendations.length > 0 ? (
-        <section className="film-related">
-          <h4 className="film-related__title">Related films</h4>
+        <section
+          className={`film-related ${
+            theme ? "film-related--dark" : "film-related--light"
+          }`}
+        >
+          <h4
+            className={`film-related__title ${
+              theme ? "film-related__title--dark" : "film-related__title--light"
+            }`}
+          >
+            Related films
+          </h4>
           <Grid films={shortRecomendations} />
         </section>
       ) : (

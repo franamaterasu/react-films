@@ -1,18 +1,36 @@
 .header {
-  background-color: #1a1a2e;
   padding: 30px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  transition: background-color .8s ease-in-out, border .8s ease-in-out;
+
+  &--dark {
+    background-color: #1a1a2e;
+    border-bottom: 1px solid lighten(#1a1a2e, 10%);
+  }
+
+  &--light {
+    background-color: #fff;
+    border-bottom: 1px solid #1a1a2e;
+  }
 
   &__logo {
-    color: #fff;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 25px;
     margin-bottom: 20px;
+    transition: color .8s ease-in-out;
+
+    &--dark {
+      color: #1a1a2e;
+    }
+
+    &--light {
+      color: #fff;
+    }
   }
 
   &__actions {
@@ -27,12 +45,19 @@
     margin-bottom: 20px;
 
     &-item {
-      color: #fff;
       margin-right: 15px;
       font-family: 'Lato', sans-serif;
       font-weight: 400;
       text-decoration: none;
       transition: color .8s ease-in-out;
+
+      &--light {
+        color: #fff;
+      }
+
+      &--dark {
+        color: #1a1a2e;
+      }
 
       &--active {
         color: #e94560;
@@ -54,6 +79,36 @@
     box-sizing: border-box;
     border-radius: 6px;
     min-width: 250px;
+    border: 1px solid transparent;
+    transition: border .8s ease-in-out;
+    margin-bottom: 20px;
+
+    &--light {
+      border: 1px solid #fff
+    }
+
+    &--dark {
+      border: 1px solid #1a1a2e;
+    }
+  }
+
+  &__theme-selector {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__theme-icon {
+    font-size: 21px;
+
+    &--light {
+      fill: #fff;
+    }
+
+    &--dark {
+      fill: #1a1a2e;
+    }
   }
 }
 
@@ -66,6 +121,14 @@
 
     &__nav {
       margin: 0 30px 0 0;
+    }
+
+    &__search {
+      margin: 0;
+    }
+
+    &__theme-selector {
+      margin: 5px 0 0 30px;
     }
   }
 }

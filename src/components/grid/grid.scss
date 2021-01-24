@@ -3,6 +3,15 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
+  transition: background-color .8s ease-in-out;
+
+  &--dark {
+    background-color: #1a1a2e;
+  }
+
+  &--light {
+    background-color: #fff;
+  }
 
   &__footer {
     display: flex;

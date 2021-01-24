@@ -101,11 +101,27 @@
 .film-related {
   padding: 60px 0 30px;
 
+  &--dark {
+    background-color: #1a1a2e;
+  }
+
+  &--light {
+    background-color: #fff;
+  }
+
   &__title {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     padding: 0 5%;
     font-size: 33px;
+
+    &--dark {
+      color: #fff;
+    }
+
+    &--light {
+      color: #1a1a2e;
+    }
   }
 }
 
