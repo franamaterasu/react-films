@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import usePortal from "react-useportal";
+import Modal from "../modal";
 import ThemeContext from "../../context/themeContext";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -6,7 +8,9 @@ import PropTypes from "prop-types";
 import "./card.scss";
 
 const Card = (props) => {
-  const { id, title, poster_path, overview } = props.cardInfo;
+  const { id, title, poster_path, backdrop_path, overview } = props.cardInfo;
+
+  var { openPortal, closePortal, isOpen, Portal } = usePortal();
 
   const theme = useContext(ThemeContext);
 
@@ -17,45 +21,68 @@ const Card = (props) => {
   };
 
   return (
-    <article className={`card`} onClick={handleClickScrollTop}>
-      <Link className="card__content" to={`/movie/${id}`}>
-        {poster_path ? (
-          <img
-            loading="lazy"
-            className="card__image"
-            src={posterUrl}
-            alt={title}
-          />
-        ) : (
-          <img
-            loading="lazy"
-            className="card__image"
-            src="https://images.pexels.com/photos/3607083/pexels-photo-3607083.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt={title}
-          />
-        )}
-        <section
-          className={`card__info ${
-            theme ? "card__info--dark" : "card__info--light"
+    <>
+      <article className={`card`}>
+        <div
+          onClick={openPortal}
+          className={`card__button ${
+            theme ? "card__button--dark" : "card__button--light"
           }`}
         >
-          <h4
-            className={`card__title ${
-              theme ? "card__title--dark" : "card__title--light"
+          Preview
+        </div>
+        <Link
+          className="card__content"
+          to={`/movie/${id}`}
+          onClick={handleClickScrollTop}
+        >
+          {poster_path ? (
+            <img
+              loading="lazy"
+              className="card__image"
+              src={posterUrl}
+              alt={title}
+            />
+          ) : (
+            <img
+              loading="lazy"
+              className="card__image"
+              src="https://images.pexels.com/photos/3607083/pexels-photo-3607083.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              alt={title}
+            />
+          )}
+          <section
+            className={`card__info ${
+              theme ? "card__info--dark" : "card__info--light"
             }`}
           >
-            {title}
-          </h4>
-          <p
-            className={`card__resume ${
-              theme ? "card__resume--dark" : "card__resume--light"
-            }`}
-          >
-            {overview}
-          </p>
-        </section>
-      </Link>
-    </article>
+            <h4
+              className={`card__title ${
+                theme ? "card__title--dark" : "card__title--light"
+              }`}
+            >
+              {title}
+            </h4>
+            <p
+              className={`card__resume ${
+                theme ? "card__resume--dark" : "card__resume--light"
+              }`}
+            >
+              {overview}
+            </p>
+          </section>
+        </Link>
+      </article>
+      {isOpen && (
+        <Portal>
+          <Modal
+            title={title}
+            poster={backdrop_path}
+            closePortal={closePortal}
+          />
+        </Portal>
+      )}
+    </>
   );
 };
 
