@@ -76,9 +76,12 @@ const Card = (props) => {
       {isOpen && (
         <Portal>
           <Modal
+            id={id}
             title={title}
+            overview={overview}
             poster={backdrop_path}
             closePortal={closePortal}
+            handleClickScrollTop={handleClickScrollTop}
           />
         </Portal>
       )}
