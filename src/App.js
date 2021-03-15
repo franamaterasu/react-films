@@ -2,6 +2,7 @@ import Header from "./components/header";
 import Film from "./components/film";
 import Home from "./pages/home";
 import Top from "./pages/top";
+import Categories from "./pages/categories";
 import Recents from "./pages/recents";
 import useSearch from "./components/useSearch";
 import useSlider from "./components/useSlider";
@@ -60,6 +61,14 @@ function App() {
           </Route>
           <Route path="/recents" exact={true}>
             <Recents films={films} />
+          </Route>
+          <Route path="/categories" exact={true}>
+            <Categories
+              films={films}
+              page={page}
+              handleMoreClick={handleMoreClick}
+              handleLessClick={handleLessClick}
+            />
           </Route>
         </Switch>
       </Router>
