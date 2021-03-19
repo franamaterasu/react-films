@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import "./grid.scss";
 
 const Grid = (props) => {
+  console.log(props);
+
   const location = useLocation();
 
   const { pathname } = location;

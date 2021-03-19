@@ -11,7 +11,10 @@ const MegaMenu = (props) => {
       <section className="megamenu__content">
         {categories.map((category) => {
           return (
-            <Link to="/categories" className="megamenu__category">
+            <Link
+              to={{ pathname: `/categories/`, hash: `${category.name}` }}
+              className="megamenu__category"
+            >
               <span className="megamenu__category-name">{category.name}</span>
             </Link>
           );
